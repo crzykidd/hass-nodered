@@ -216,7 +216,7 @@
         "id": "d897840fdb386ce7",
         "type": "discord-credentials",
         "name": "DiscordServer",
-        "token": "Nzc1ODQxNDMzNTM4MDAyOTc3.X6sMpA.sFHKfx8ohDICUa0tQIDnGp5_0og",
+        "token": "Nzc1ODQxNDMzNTM4MDAyOTc3.X6sMpA.Ap6ec8-qP_cqaZZlbxhS43jdmkw",
         "activity": "",
         "username": "",
         "debug_channel": "",
@@ -228,8 +228,8 @@
         "z": "ca2305ba.3a64f8",
         "name": "Server Room Door Events",
         "info": "",
-        "x": 240,
-        "y": 3760,
+        "x": 210,
+        "y": 3580,
         "wires": []
     },
     {
@@ -287,8 +287,8 @@
                 "valueType": "triggerId"
             }
         ],
-        "x": 237,
-        "y": 3824,
+        "x": 207,
+        "y": 3644,
         "wires": [
             [
                 "126eb1f0.60baee"
@@ -313,8 +313,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 468,
-        "y": 3827,
+        "x": 438,
+        "y": 3647,
         "wires": [
             [
                 "89d07e44.bb7ee"
@@ -341,8 +341,8 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 729,
-        "y": 3835,
+        "x": 699,
+        "y": 3655,
         "wires": [
             []
         ]
@@ -364,8 +364,8 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 730,
-        "y": 3790,
+        "x": 700,
+        "y": 3610,
         "wires": [
             [
                 "746d5c74.a077b4"
@@ -403,8 +403,8 @@
         "z": "ca2305ba.3a64f8",
         "name": "******************All Door Events******************",
         "info": "adf",
-        "x": 307,
-        "y": 3715,
+        "x": 300,
+        "y": 3540,
         "wires": []
     },
     {
@@ -635,8 +635,8 @@
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
-        "x": 950,
-        "y": 3820,
+        "x": 920,
+        "y": 3640,
         "wires": []
     },
     {
@@ -5024,6 +5024,200 @@
                 "985b8d6e.4548a"
             ]
         ]
+    },
+    {
+        "id": "d78e3e88ad87c196",
+        "type": "server-state-changed",
+        "z": "ca2305ba.3a64f8",
+        "name": "Kitchen Pantry Door Contact",
+        "server": "65b61d5d.d1e1c4",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.kitchen_pantry_door_access_control_window_door_is_open",
+        "entityidfiltertype": "exact",
+        "outputinitially": true,
+        "state_type": "habool",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "for": "",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 220,
+        "y": 3760,
+        "wires": [
+            [
+                "f73ee47b035d6b98",
+                "300eba1e221b3911"
+            ]
+        ]
+    },
+    {
+        "id": "f73ee47b035d6b98",
+        "type": "switch",
+        "z": "ca2305ba.3a64f8",
+        "name": "Open/Close",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 441,
+        "y": 3763,
+        "wires": [
+            [
+                "ba9b08941273f507"
+            ],
+            [
+                "53650998703defd3"
+            ]
+        ]
+    },
+    {
+        "id": "53650998703defd3",
+        "type": "api-call-service",
+        "z": "ca2305ba.3a64f8",
+        "name": "Light Off",
+        "server": "65b61d5d.d1e1c4",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.kitchen_pantry_led",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 702,
+        "y": 3771,
+        "wires": [
+            [
+                "25773f2eae3ce22d"
+            ]
+        ]
+    },
+    {
+        "id": "ba9b08941273f507",
+        "type": "api-call-service",
+        "z": "ca2305ba.3a64f8",
+        "name": "Light On",
+        "server": "65b61d5d.d1e1c4",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.kitchen_pantry_led",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 703,
+        "y": 3726,
+        "wires": [
+            [
+                "4728a0a6a098ca27"
+            ]
+        ]
+    },
+    {
+        "id": "4728a0a6a098ca27",
+        "type": "debug",
+        "z": "ca2305ba.3a64f8",
+        "name": "test",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 3720,
+        "wires": []
+    },
+    {
+        "id": "300eba1e221b3911",
+        "type": "debug",
+        "z": "ca2305ba.3a64f8",
+        "name": "test",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 3860,
+        "wires": []
+    },
+    {
+        "id": "25773f2eae3ce22d",
+        "type": "debug",
+        "z": "ca2305ba.3a64f8",
+        "name": "test",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 969,
+        "y": 3799,
+        "wires": []
     },
     {
         "id": "4d5c5ff3.28b9a",
